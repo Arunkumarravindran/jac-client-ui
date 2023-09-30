@@ -1,0 +1,11 @@
+
+<div class="user-list">
+    <div *ngFor="let user of userList" class="user-list-item" (click)="onUserClick(user)">
+      <img [src]="user.imageUrl" alt="{{ user.name }}'s Image">
+      <div class="user-info">
+        <h4>{{ user.name }}</h4>
+        <p>{{ user.lastMessage }}</p>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,39 @@
+
+.sidebar {
+    width: 250px;
+    background-color: #252526; /* Microsoft Teams sidebar color */
+    color: #ffffff; /* Sidebar text color */
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Set height to 100vh to cover the entire screen */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+  }
+  
+  
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    padding: 16px;
+    background-color: #333; /* Header background color */
+  }
+  
+  .logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+  
+  .team-name {
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .sidebar-menu {
+    flex-grow: 1;
+    overflow-y: auto;
+  }
+  
+  .menu-label {
+    margin-left: 12px;
+  }
+  

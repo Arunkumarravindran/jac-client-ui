@@ -1,0 +1,50 @@
+/* dashboard.component.css */
+.sidenav-container {
+    height: 100%;
+  }
+  
+  .sidenav {
+    width: 250px;
+    background-color: #37474f; /* Dark blue */
+    color: #fff;
+  }
+  
+  .content {
+    padding: 20px;
+  }
+  
+  .widget {
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+  }
+  
+  .widget-header {
+    background-color: #f06292; /* Pink */
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px 5px 0 0;
+  }
+  
+  .widget-content {
+    padding: 10px;
+  }
+  
+  .dashboard-header {
+    background-color: #2196f3; /* Blue */
+    color: #fff;
+  }
+  
+  .dashboard-header button {
+    color: #fff;
+  }
+  
+  .dashboard-content {
+    background-color: #eeeeee;
+    padding: 20px;
+    border-radius: 0 0 5px 5px;
+  }
+  

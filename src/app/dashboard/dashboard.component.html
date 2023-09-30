@@ -1,0 +1,38 @@
+<!-- dashboard.component.html -->
+<mat-sidenav-container class="sidenav-container">
+    <mat-sidenav #sidenav class="sidenav">
+      <mat-nav-list>
+        <a mat-list-item routerLink="/dashboard">Dashboard</a>
+        <a mat-list-item routerLink="/agents">Agents</a>
+        <!-- Add more sidebar links as needed -->
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <mat-toolbar class="dashboard-header">
+        <button mat-icon-button (click)="sidenav.toggle()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <span>Dashboard</span>
+      </mat-toolbar>
+      <div class="content">
+        <div class="widget">
+          <div class="widget-header">
+            Widget 1
+          </div>
+          <div class="widget-content">
+            <!-- Widget content -->
+          </div>
+        </div>
+        <div class="widget">
+          <div class="widget-header">
+            Widget 2
+          </div>
+          <div class="widget-content">
+            <!-- Widget content -->
+          </div>
+        </div>
+        <!-- Add more colorful widgets as needed -->
+      </div>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+  

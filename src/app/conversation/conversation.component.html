@@ -1,0 +1,14 @@
+<!-- conversation.component.html -->
+<div class="conversation-wrapper">
+    <div #conversationContainer class="conversation-container">
+      <div *ngFor="let message of messages" class="message" [ngClass]="{ 'sent': message.senderId === 1, 'received': message.senderId === 4 }">
+        <p>{{ message.message }}</p>
+      </div>
+    </div>
+  
+    <div class="chat-input">
+      <textarea [(ngModel)]="newMessage" placeholder="Type your message..." (keydown.enter)="sendMessage()"></textarea>
+      <button (click)="sendMessage()">Send</button>
+    </div>
+  </div>
+  

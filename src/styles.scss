@@ -1,1 +1,44 @@
 /* You can add global styles to this file, and also import other style files */
+// styles.scss
+// @import '@angular/material/theming';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+// // Define your custom theme
+// $custom-theme: mat.define-light-theme((
+//   primary: #ff9800, // Orange
+//   accent: #03a9f4, // Light blue
+//   warn: #f44336,   // Red
+// ));
+
+// @include mat.all-component-themes($custom-theme);
+
+// Breakpoints for media queries
+$desktop-width: 1024px; // Example desktop breakpoint
+$tablet-width: 768px;  // Example tablet breakpoint
+$mobile-width: 576px;  // Example mobile breakpoint
+
+/* Media query for tablets */
+@media (max-width: $desktop-width) {
+  .main-content {
+    margin-left: 0; /* Remove sidebar margin for tablets and below */
+  }
+}
+
+/* Media query for mobile devices */
+@media (max-width: $tablet-width) {
+  .main-content {
+    margin-left: 0; /* Remove sidebar margin for mobile devices */
+  }
+
+  .sidebar {
+    display: none; /* Hide sidebar for mobile devices */
+  }
+
+  /* Add a button or icon to toggle the sidebar when hidden on mobile */
+  .menu-button {
+    display: block;
+  }
+}

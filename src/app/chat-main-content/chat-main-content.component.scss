@@ -1,0 +1,21 @@
+/* main-content.component.scss */
+.main-content {
+    display: flex;
+    flex-direction: row; /* Horizontal layout */
+    height: 100%;
+  }
+  
+  .user-list-container {
+    flex: 1; /* Takes up one-third of the available space */
+    padding: 10px;
+    border-right: 1px solid #ddd; /* Separation between user list and conversation */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+  }
+  
+  .conversation-container {
+    flex: 2; /* Takes up two-thirds of the available space */
+    padding: 20px;
+    background-color: #f7f7f7; /* Conversation background color */
+    overflow-y: auto; /* Enable vertical scrolling if content overflows */
+  }
+  

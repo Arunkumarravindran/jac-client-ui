@@ -1,0 +1,10 @@
+<!-- main-content.component.html -->
+<div class="main-content">
+    <div class="user-list-container">
+      <jac-user-list (userSelected)="onUserSelected($event)"></jac-user-list>
+    </div>
+    <div class="conversation-container">
+      <jac-conversation [selectedUser]="selectedUser"></jac-conversation>
+    </div>
+  </div>
+  
