@@ -18,7 +18,7 @@ export class ConversationComponent implements OnInit, OnChanges {
   constructor(private conversationService : ConversationService){}
   ngOnChanges(changes: SimpleChanges): void {
     
-    this.messages = this.conversationService.getConversation(this.selectedUser).pipe(map(convorsation => convorsation.map(conv => conv.messages)),concatAll());
+    this.messages = this.conversationService.getConversation(this.selectedUser).pipe(map(conversation => conversation.map(conv => conv.messages)),concatAll());
     this.messages.subscribe(data=> {
       console.log(data);
 

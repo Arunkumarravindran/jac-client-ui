@@ -17,7 +17,7 @@ export const mockUsers  : IUser[] = [
       name: 'Jane Smith',
       email: 'jane@example.com',
       profileImage: 'https://th.bing.com/th/id/OIP.9foYV1DrpdsVmevOY0eX5QHaHa?pid=ImgDet&w=500&h=500&rs=1',
-      lastMessage : "How are you?"
+      lastMessage : "What are you doing?"
     },
     {
       id: 3,
@@ -25,7 +25,7 @@ export const mockUsers  : IUser[] = [
       name: 'Alice Johnson',
       email: 'alice@example.com',
       profileImage: 'https://cdn3.iconfinder.com/data/icons/business-avatar-1/512/11_avatar-512.png',
-      lastMessage : "How are you?"
+      lastMessage : "I have an issue?"
     },
     {
       id: 4,
@@ -41,7 +41,7 @@ export const mockUsers  : IUser[] = [
       name: 'Eve Wilson',
       email: 'eve@example.com',
       profileImage: 'https://th.bing.com/th/id/OIP.I2Ewx_0R20V7y_kC008nlAHaHa?pid=ImgDet&w=512&h=512&rs=1   ',
-      lastMessage : "How are you?"
+      lastMessage : "How do you do?"
     },
     // Add more mock users as needed
   ];

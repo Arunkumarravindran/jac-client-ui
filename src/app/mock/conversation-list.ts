@@ -15,8 +15,8 @@ import { IConversation } from "../model/conversation";
       recipientId: '2',
       agentId: 1,
       messages: [
-        { senderId: 1, message: 'Hey, Jane!' },
-        { senderId: 3, message: 'Hello, John!' }
+        { senderId: 1, message: 'Hey, Jane!', timestamp : new Date("2023/09/01") },
+        { senderId: 3, message: 'Hello, John!', timestamp : new Date() }
       ]
     },
     {
@@ -24,8 +24,8 @@ import { IConversation } from "../model/conversation";
       recipientId: '3',
       agentId: 1,
       messages: [
-        { senderId: 1, message: 'Hey, Alice!' },
-        { senderId: 3, message: 'Hello, John!' }
+        { senderId: 1, message: 'Hey, Alice!', timestamp : new Date("2023/08/01") },
+        { senderId: 3, message: 'Hello, John!', timestamp : new Date() }
       ]
     },
     {
@@ -33,8 +33,8 @@ import { IConversation } from "../model/conversation";
       recipientId: '4',
       agentId: 1,
       messages: [
-        { senderId: 1, message: 'Hey, Bob!' },
-        { senderId: 3, message: 'Hello, John!' }
+        { senderId: 1, message: 'Hey, Bob!', timestamp : new Date("2023/07/01") },
+        { senderId: 3, message: 'Hello, John!', timestamp : new Date() }
       ]
     },
     {
@@ -42,8 +42,8 @@ import { IConversation } from "../model/conversation";
       recipientId: '5',
       agentId: 1,
       messages: [
-        { senderId: 1, message: 'Hey, Eve!' },
-        { senderId: 3, message: 'Hello, John!' }
+        { senderId: 1, message: 'Hey, Eve!', timestamp : new Date("2023/06/01") },
+        { senderId: 3, message: 'Hello, John!', timestamp : new Date() }
       ]
     },
   ];
