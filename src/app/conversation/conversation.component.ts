@@ -1,37 +1,51 @@
-import { Component, ElementRef, Input, ViewChild } from '@angular/core';
+import { Component, ElementRef, Input, OnChanges, OnInit, SimpleChanges, ViewChild } from '@angular/core';
+import { IChatMessage } from '../model/conversation';
+import { ConversationService } from '../service/conversation.service';
+import { Observable, concatAll, map, of } from 'rxjs';
 
 @Component({
   selector: 'jac-conversation',
   templateUrl: './conversation.component.html',
   styleUrls: ['./conversation.component.scss']
 })
-export class ConversationComponent {
-  @Input() selectedUser: string | null = null;
+export class ConversationComponent implements OnInit, OnChanges {
+ 
+  @Input() selectedUser: string = '';
   @ViewChild('conversationContainer') private conversationContainer!: ElementRef;
   newMessage: string = '';
-  messages: ChatMessage[] = [
-    { senderId: 1, recipientId: 4, message: 'Hello, how can I assist you?' },
-    { senderId: 4, recipientId: 1, message: 'I have a question about my account.' },
-    { senderId: 1, recipientId: 4, message: 'Sure, what\'s your question?' },
-    { senderId: 4, recipientId: 1, message: 'I need to update my contact information.' },
-    { senderId: 1, recipientId: 4, message: 'Let me help you with that.' },
-    // Add more messages as needed
-  ];
+  messages: Observable<any[]> = of([]);
 
+  constructor(private conversationService : ConversationService){}
+  ngOnChanges(changes: SimpleChanges): void {
+    
+    this.messages = this.conversationService.getConversation(this.selectedUser).pipe(map(convorsation => convorsation.map(conv => conv.messages)),concatAll());
+    this.messages.subscribe(data=> {
+      console.log(data);
 
+    })
+  }
+
+  ngOnInit(): void {
+   
+  }
 
   sendMessage() {
     if (this.newMessage.trim() !== '') {
-      // Create a new message object and push it to the messages array
-      const newChatMessage: ChatMessage = {
-        senderId: 1, // Assuming the agent is sending the message
-        recipientId: 4, // Assuming the user is the recipient
-        message: this.newMessage
+      const newChatMessage: IChatMessage = {
+        senderId: 1, 
+        message: this.newMessage,
+        timestamp : new Date()
       };
-
-      this.messages.push(newChatMessage);
-
-      // Clear the input field
+      this.messages = this.messages.pipe(
+        map(messages => {
+          if (messages.length > 0) {
+            const clonedUsers = [...messages];
+            clonedUsers.push(newChatMessage);
+            return clonedUsers;
+          }
+          return messages;
+        })
+      );
       this.newMessage = '';
       this.scrollToLastMessage();
     }

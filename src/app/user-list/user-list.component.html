@@ -1,11 +1,21 @@
 
 <div class="user-list">
-    <div *ngFor="let user of userList" class="user-list-item" (click)="onUserClick(user)">
-      <img [src]="user.imageUrl" alt="{{ user.name }}'s Image">
+  
+        <mat-form-field class="search-bar" appearance="outline">
+          <input matInput [(ngModel)]="searchText" placeholder="Search users...">
+          <mat-icon matPrefix>search</mat-icon>
+          <button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="clearSearch()">
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+        <div *ngIf="filteredUserList | async as filteredUsers">
+    <div *ngFor="let user of filteredUsers" class="user-list-item" (click)="onUserClick(user)">
+      <img [src]="user.profileImage" alt="{{ user.name }}'s Image">
       <div class="user-info">
         <h4>{{ user.name }}</h4>
         <p>{{ user.lastMessage }}</p>
       </div>
     </div>
+  </div>
   </div>
   

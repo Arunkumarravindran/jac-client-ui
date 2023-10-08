@@ -1,27 +1,34 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { UserListService } from '../service/user-list.service';
+import { Observable, filter, map, of, tap } from 'rxjs';
+import { IUser } from '../model/users';
 
 @Component({
   selector: 'jac-user-list',
   templateUrl: './user-list.component.html',
   styleUrls: ['./user-list.component.scss']
 })
-export class UserListComponent {
-  @Output() userSelected = new EventEmitter<string>();
-  userList: any[] = [
-    {
-      name: 'User 1',
-      imageUrl: 'path/to/user1.jpg',
-      lastMessage: 'Hello there!',
-    },
-    {
-      name: 'User 2',
-      imageUrl: 'path/to/user2.jpg',
-      lastMessage: 'How are you?',
-    },
-    // Add more user data as needed
-  ];
+export class UserListComponent implements OnInit {
+  @Output() userSelected = new EventEmitter<IUser>();
+  searchText = '';
+  userList : Observable<IUser[]>= of([]);
+constructor(private userListService : UserListService){}
 
-  onUserClick(user: string) {
+  ngOnInit(): void {
+    this.userList = this.userListService.getUsers();
+  }
+
+  onUserClick(user: IUser) {
     this.userSelected.emit(user);
   }
+
+  get filteredUserList(): Observable<IUser[]> {
+    // Implement filtering logic based on the searchText
+    return this.userList.pipe(map(users => users.filter(user => user.name.toLowerCase().includes(this.searchText.toLocaleLowerCase()))));
+  }
+
+  clearSearch(): void {
+    this.searchText = '';
+  }
+  
 }

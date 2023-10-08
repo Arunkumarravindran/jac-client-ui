@@ -15,6 +15,12 @@ import { ChatMainContentComponent } from './chat-main-content/chat-main-content.
 import { UserListComponent } from './user-list/user-list.component';
 import { ConversationComponent } from './conversation/conversation.component';
 import { FormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field'; // Import the MatFormFieldModule
+import { MatInputModule } from '@angular/material/input'; // Import the MatInputModule
+import { MatButtonModule } from '@angular/material/button'; // Import the MatButtonModule
+import { HttpClientModule } from '@angular/common/http';
+import { ChatTimestampPipe } from './pipes/chat-timestamp.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +29,8 @@ import { FormsModule } from '@angular/forms';
     ChatSidemenuComponent,
     ChatMainContentComponent,
     UserListComponent,
-    ConversationComponent
+    ConversationComponent,
+    ChatTimestampPipe
   ],
   imports: [
     BrowserModule,
@@ -33,7 +40,11 @@ import { FormsModule } from '@angular/forms';
     MatToolbarModule,
     MatIconModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    MatFormFieldModule, // Add MatFormFieldModule
+    MatInputModule, // Add MatInputModule
+    MatButtonModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

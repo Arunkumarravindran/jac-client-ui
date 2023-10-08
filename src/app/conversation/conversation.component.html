@@ -1,11 +1,13 @@
 <!-- conversation.component.html -->
 <div class="conversation-wrapper">
     <div #conversationContainer class="conversation-container">
-      <div *ngFor="let message of messages" class="message" [ngClass]="{ 'sent': message.senderId === 1, 'received': message.senderId === 4 }">
+      <div *ngIf="messages | async as latestMessages">
+      <div *ngFor="let message of latestMessages" class="message" [ngClass]="{ 'sent': message.senderId === 1, 'received': message.senderId === 3 }">
         <p>{{ message.message }}</p>
+        <small>{{ message.timestamp | jacTimestamp }}</small>
       </div>
     </div>
-  
+  </div>
     <div class="chat-input">
       <textarea [(ngModel)]="newMessage" placeholder="Type your message..." (keydown.enter)="sendMessage()"></textarea>
       <button (click)="sendMessage()">Send</button>

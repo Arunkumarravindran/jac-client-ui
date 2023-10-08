@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IUser } from '../model/users';
 
 @Component({
   selector: 'jac-chat-main-content',
@@ -6,9 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./chat-main-content.component.scss']
 })
 export class ChatMainContentComponent {
-  selectedUser: string | null = null;
+  selectedUser: string = '';
 
-  onUserSelected(user: string) {
-    this.selectedUser = user;
+  onUserSelected(user: IUser) {
+    this.selectedUser = user.recipientId;
   }
 }

@@ -1,7 +1,36 @@
 /* user-list.component.scss */
 .user-list {
-    /* Your styling for the user list container */
+    .jac-header {
+      font-size: 28px;
+      font-weight: bold;
+      color: white;
+    }
+  
+    .search-bar {
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+    
+        input {
+          border: none;
+          outline: none;
+          background-color: transparent;
+          width: 100%;
+          padding: 2px;
+          font-size: 14px;
+        }
+    
+        .search-icon {
+          color: rgba(255, 255, 255, 0.6);
+        }
+    
+        button {
+          color: rgba(58, 46, 230, 0.884);
+        }
+    }
   }
+  
   
   .user-list-item {
     display: flex;
